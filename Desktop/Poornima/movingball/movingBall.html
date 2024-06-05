@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        #ball{
+            width: 70px;
+            height: 60px;
+             margin-top: 5%;
+            margin-left: 10%; 
+            background-color: brown;
+            border: 4px solid black;
+            border-radius: 50%;
+            position: absolute;
+        }
+        .blocks{
+            width: 20px;
+            height: 80px;
+            background-color: rgb(105, 145, 40);
+            border: 2px solid black;
+        }
+        #box{
+            margin-top: 5%;
+            margin-left: 32%; 
+           
+        }
+        #box1{
+            margin-top: 9%;
+            margin-left: 50%; 
+             }
+        #box2{
+            margin-top: -5%;
+            margin-left: 65%; 
+             }  
+        #box3{
+            margin-top: 1%;
+            margin-left: 85%; 
+             }    
+         #box4{
+            margin-top: -17%;
+            margin-left: 98%; 
+             }  
+    </style>
+</head>
+<body>
+    
+    <button onclick="movingBall()">start</button> 
+    <button onclick="stopMoving()">stop</button>
+    
+    <div id="box1" class="blocks"></div>
+    <div id="ball" ></div>
+    <div id="box" class="blocks"></div>
+    <div id="box2" class="blocks"></div>
+    <div id="box3" class="blocks"></div>
+    <div id="box4" class="blocks"></div>
+
+    <script>
+        
+        let moveBall;
+        
+       function movingBall(){
+        let count = 0;
+        const ball = document.getElementById("ball")
+        
+          moveBall = setInterval(() => {
+            
+            if(count == 200){
+                ball.style.top = `${count - 100}px`;
+            }
+            else if(count == 450){
+                ball.style.top = `${count - 200}px`;
+            }
+            else if(count == 650){
+                ball.style.top = `${count - 300}px`;
+            }
+            else if(count == 750){
+                 ball.style.bottom = `${count + 600}px`;
+                
+            }
+            else if(count == 910){
+                 ball.style.top = `${count - 700}px`;
+                
+            }
+            else if(count == 1120){
+                clearInterval(moveBall)
+                alert("opps you are out")
+            }
+            count++
+            console.log(count)
+            ball.style.left = count + "px";
+            }, 10)
+       
+       }
+        function stopMoving()
+        {
+            
+             clearInterval(moveBall)
+            
+            
+        }
+
+    
+
+    </script>
+</body>
+</html>
